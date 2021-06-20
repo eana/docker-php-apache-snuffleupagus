@@ -1,0 +1,38 @@
+version: 2.1
+
+orbs:
+  aws-ecr: circleci/aws-ecr@7.0.0
+
+jobs:
+  docker_test_build:
+    executor: aws-ecr/default
+    steps:
+      - checkout
+      - run:
+          name: Docker Build
+          command: make image TAG=test
+  docker_build_and_push:
+    executor: aws-ecr/default
+    steps:
+      - checkout
+      - run:
+          name: Docker Build and Push
+          command: make push
+
+workflows:
+  version: 2
+  build_and_push:
+    jobs:
+      - docker_test_build:
+          context:
+            - docker-publish
+            - aws_svc_circleci
+      - docker_build_and_push:
+          context:
+            - docker-publish
+            - aws_svc_circleci
+          requires:
+            - docker_test_build
+          filters:
+            branches:
+              only: master
