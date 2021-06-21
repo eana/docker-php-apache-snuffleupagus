@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
-    ":dependencyDashboard"
+    ":dependencyDashboard",
+    "docker:disableMajor"
   ],
   "labels": ["dependencies"],
   "schedule": ["after 10am and before 3pm on every weekday"],
