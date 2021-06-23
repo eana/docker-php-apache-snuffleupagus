@@ -31,8 +31,6 @@ workflows:
           context:
             - docker-publish
             - aws_svc_circleci
-          requires:
-            - docker_test_build
           filters:
             branches:
               only: master
