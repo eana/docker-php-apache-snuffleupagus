@@ -7,5 +7,14 @@
   "labels": ["dependencies"],
   "schedule": ["after 10am and before 3pm on every weekday"],
   "assignees": ["@eana"],
-  "reviewers": ["@eana"]
+  "reviewers": ["@eana"],
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=\"?(?<currentValue>.*?)\"?\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
+    }
+  ]
 }

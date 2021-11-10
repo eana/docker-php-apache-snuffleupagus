@@ -7,9 +7,9 @@ RUN set -xe && \
     apt-get update && \
     apt-get install --yes git
 
-# Install snuffleupagus
-# Check latest stable version here: https://github.com/jvoisin/snuffleupagus/releases
+# renovate: datasource=github-releases depName=jvoisin/snuffleupagus versioning=semver
 ENV SNUFFLEUPAGUS_VERSION v0.7.0
+
 # Add snuffleupagus configuration
 COPY snuffleupagus/20-snuffleupagus.ini $PHP_INI_DIR/conf.d/
 # Add my custom snuffleupagus rules to the container
