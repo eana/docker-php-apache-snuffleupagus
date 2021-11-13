@@ -8,7 +8,7 @@ RUN set -xe && \
     apt-get install --yes git
 
 # renovate: datasource=github-tags depName=jvoisin/snuffleupagus versioning=semver
-ENV SNUFFLEUPAGUS_VERSION="v0.7.0"
+ENV SNUFFLEUPAGUS_VERSION="v0.7.1"
 
 # Add snuffleupagus configuration
 COPY snuffleupagus/20-snuffleupagus.ini $PHP_INI_DIR/conf.d/
