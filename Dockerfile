@@ -1,4 +1,4 @@
-FROM wordpress:5.9.0-php7.4-apache
+FROM wordpress:5.9.1-php7.4-apache
 
 ENV DEBIAN_FRONTEND noninteractive
 
