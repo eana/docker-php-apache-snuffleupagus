@@ -27,6 +27,9 @@ workflows:
           context:
             - docker-publish
             - aws_svc_circleci
+          filters:
+            branches:
+              ignore: master
       - docker_build_and_push:
           context:
             - docker-publish
